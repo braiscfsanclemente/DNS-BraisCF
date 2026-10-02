@@ -1,0 +1,4 @@
+zone "starwars.lan" {
+    type master;
+    file "/etc/bind/db.starwars.lan";
+};
