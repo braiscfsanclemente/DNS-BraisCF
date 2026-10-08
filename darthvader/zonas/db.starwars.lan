@@ -1,15 +1,16 @@
 $TTL    86400
 @       IN      SOA     darthvader.starwars.lan. brais.starwars.lan. (
-                              2026100201 ; Serial
-                                  604800 ; Refresh
-                                   86400 ; Retry
-                                 2419200 ; Expire
-                                   86400 ) ; Negative Cache TTL
+                                       1 ; Serial
+                                    3600 ; Refresh
+                                    1800 ; Retry
+                                 1209600 ; Expire
+                                 86400 ) ; Negative Cache TTL
 
-; Rexistro NS (Servidor de nomes)
+; Servidores de nomes
+@       IN      NS      darthvader.starwars.lan.
 @       IN      NS      darthsidious.starwars.lan.
 
-; Rexistros de Tipo A
+; Rexistros A
 darthvader      IN      A       192.168.20.10
 skywalker       IN      A       192.168.20.101
 skywalker       IN      A       192.168.20.111
@@ -19,11 +20,7 @@ yoda            IN      A       192.168.20.24
 yoda            IN      A       192.168.20.25
 c3p0            IN      A       192.168.20.26
 
-; Rexistro CNAME
-palpatine       IN      CNAME   darthsidious
-
-; Rexistro MX (Servidor de correo)
+; Rexistros CNAME, MX (correo) e TXT
+palpatine       IN      CNAME   darthsidious.starwars.lan.
 @       IN      MX      10      c3p0.starwars.lan.
-
-; Rexistro TXT
 lenda   IN      TXT     "Que a forza te acompanhe"

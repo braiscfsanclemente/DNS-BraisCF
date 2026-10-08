@@ -1,14 +1,13 @@
 $TTL    604800
-@       IN      SOA     darthvader.starwars.lan. root.starwars.lan. (
-                              2026100601 ; Serial
-                                  604800 ; Refresh
-                                   86400 ; Retry
-                                 2419200 ; Expire
-                                604800 ) ; Negative Cache TTL
-;
-; Rexistros NS
+@       IN      SOA     darthvader.starwars.lan. brais.starwars.lan. (
+                                       1 ; Serial
+                                    3600 ; Refresh
+                                    1800 ; Retry
+                                 1209600 ; Expire
+                                 86400 ) ; Negative Cache TTL
+
+; Servidores de nomes
 @       IN      NS      darthvader.starwars.lan.
-@       IN      NS      darthsidious.starwars.lan.
 
 ; Rexistros PTR
 10      IN      PTR     darthvader.starwars.lan.
