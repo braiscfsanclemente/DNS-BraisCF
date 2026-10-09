@@ -1,6 +1,6 @@
 $TTL    86400
 @       IN      SOA     darthvader.starwars.lan. brais.starwars.lan. (
-                                       1 ; Serial
+                                       2 ; Serial
                                     3600 ; Refresh
                                     1800 ; Retry
                                  1209600 ; Expire
@@ -19,6 +19,7 @@ darthsidious    IN      A       192.168.20.11
 yoda            IN      A       192.168.20.24
 yoda            IN      A       192.168.20.25
 c3p0            IN      A       192.168.20.26
+chewbacca       IN      A       192.168.20.28
 
 ; Rexistros CNAME, MX (correo) e TXT
 palpatine       IN      CNAME   darthsidious.starwars.lan.
