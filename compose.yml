@@ -3,6 +3,7 @@ services:
   darthvader:
     build: dnsserver
     hostname: darthvader
+    command: [ "-f", "-4" ]
     networks:
       rededns:
         ipv4_address: 192.168.20.10
@@ -15,11 +16,14 @@ services:
   mandalorian:
     build: dnsserver
     hostname: mandalorian
+    depends_on:
+      - darthvader
     networks:
       rededns:
         ipv4_address: 192.168.20.9
     volumes:
       - ./mandalorian/named.conf.options:/etc/bind/named.conf.options
+      - ./logs/query.log:/var/log/named/query.log
 
   darthsidious:
     build: dnsserver
@@ -32,6 +36,21 @@ services:
         ipv4_address: 192.168.20.11
     volumes:
       - ./darthsidious/named.conf.local:/etc/bind/named.conf.local
+
+  delegado:
+    build: dnsserver
+    hostname: delegado
+    depends_on:
+      - mandalorian
+      - darthvader
+      - darthsidious
+    networks:
+      rededns:
+        ipv4_address: 192.168.20.8
+    volumes:
+      - ./delegado/named.conf.options:/etc/bind/named.conf.options
+      - ./delegado/named.conf.local:/etc/bind/named.conf.local
+      - ./delegado/zonas/db.imperio.starwars.lan:/etc/bind/db.imperio.starwars.lan
 
   cliente:
     build: cliente

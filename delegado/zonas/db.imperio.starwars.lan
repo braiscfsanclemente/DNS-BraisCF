@@ -1,0 +1,16 @@
+$TTL 1D
+@       IN      SOA     delegado.imperio.starwars.lan. admin.starwars.lan. (
+                        3  ; Serial (YYYYMMDDnn)
+                        3600          ; Refresh
+                        1800          ; Retry
+                        1209600       ; Expire
+                        86400 )       ; Minimum TTL
+
+; Servidor de nomes (primario)
+        IN      NS      delegado.imperio.starwars.lan.
+
+
+; Rexistros A
+delegado      IN      A       192.168.20.8  
+tsuichoi      IN      A       192.168.20.45
+bultarswan    IN      A       192.168.20.226
