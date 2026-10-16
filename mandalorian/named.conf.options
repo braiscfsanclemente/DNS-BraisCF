@@ -4,3 +4,13 @@ options {
 		192.168.20.10;
 	};
 };
+
+logging {
+    channel query.log {
+        file "/var/log/named/query.log";
+        // Set the severity to dynamic to see all the debug messages.
+        severity dynamic;
+    };
+
+    category queries { query.log; };
+};
